@@ -63,6 +63,23 @@ make install
 ln -s /usr/local/nginx/sbin/nginx /usr/bin/nginx
 ```
 
+### 将服务注册为linux系统服务
+
+```
+vim /usr/lib/systemd/system/nginx.service
+
+[Unit]
+Description=nginx
+[Service]
+ExecStart=/usr/bin/nginx
+# 指定二进制程序目录及执行时需要加载的配置文件目录
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target
+```
+
 
 ## 问题参考
 
