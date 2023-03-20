@@ -49,3 +49,14 @@ server {
 }
 
 ```
+
+### stream 模块使用
+
+```
+stream {
+	server {
+	
+	}
+}
+```
+

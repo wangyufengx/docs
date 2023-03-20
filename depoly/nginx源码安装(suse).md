@@ -57,6 +57,12 @@ make
 make install
 ```
 
+### 编译时添加stream模块
+
+```
+./configure --with-stream
+```
+
 ### 添加软连接
 
 ```bash
