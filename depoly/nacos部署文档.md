@@ -33,6 +33,12 @@ db.user=nacos
 db.password=nacos
 ```
 
+#### 关闭access日志
+
+```
+server.tomcat.accesslog.enabled=false
+```
+
 ### 开启权限认证
 
 ```bash
@@ -42,10 +48,9 @@ nacos.core.auth.enabled=true
 nacos.core.auth.server.identity.key=serverIdentity
 nacos.core.auth.server.identity.value=security
 
-
+# 关闭白名单
+nacos.core.auth.enable.userAgentAuthWhite=false
 ```
-
-
 
 ### 启动服务
 
