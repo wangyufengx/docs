@@ -295,6 +295,40 @@
 
 	默认的淘汰策略为`volatile-lru`。可以通过修改配置文件或者动态修改参数来改变淘汰策略。例如，使用命令`CONFIG SET maxmemory-policy allkeys-random`来将淘汰策略修改为随机淘汰。
 
+## Redis集群
+
+1. 什么是 Sentinel？ 有什么用？
+
+2. Sentinel 如何检测节点是否下线？主观下线与客观下线的区别?
+
+3. Sentinel 是如何实现故障转移的？
+
+4. 为什么建议部署多个 sentinel 节点（哨兵集群）？
+
+5. Sentinel 如何选择出新的 master（选举机制）?
+
+6. 如何从 Sentinel 集群中选择出 Leader ？
+
+7. Sentinel 可以防止脑裂吗？
+
+8. 为什么需要 Redis Cluster？解决了什么问题？有什么优势？
+
+9. Redis Cluster 是如何分片的？
+
+10. 为什么 Redis Cluster 的哈希槽是 16384 个?
+
+11. 如何确定给定 key 的应该分布到哪个哈希槽中？
+
+12. Redis Cluster 支持重新分配哈希槽吗？
+
+13. Redis Cluster 扩容缩容期间可以提供服务吗？
+
+14. Redis Cluster 中的节点是怎么进行通信的？
+
+	
+
+
+
 
 
 
