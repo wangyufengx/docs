@@ -14,7 +14,7 @@
 
 3. Java虚拟机运行时数据区
 
-	![](..\img\java_runtime_data_area.png)
+	![](../img/java_runtime_data_area.png)
 
 4. Hotspot JVM 后台运行的系统线程主要有哪些？
 
