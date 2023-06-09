@@ -47,5 +47,18 @@ ALTER TABLE `表名` MODIFY `列名` 列类型；
 
 ​		示例：ALTER TABLE test ADD COLUMN name VARCHAR(64) AFTER id;
 
+## 锁
 
+### 表加读写锁
+
+LOCK TABLE `表名` READ|WRITE;
+
+### 全局锁
+
+FLUSH TABLE WITH READ|WRITE LOCK;
+
+### 查看锁
+
+SHOW OPEN TABLES	WHERE IN_use > 0;
+SHOW STATUS LIKE '%lock%';
 
