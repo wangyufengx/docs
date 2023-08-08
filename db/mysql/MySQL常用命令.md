@@ -38,7 +38,7 @@ SELECT user,host FROM mysql.user WHERE user = '用户';
 
 ### 修改远程访问权限
 
-GRANT ALL PRIVILEGES ON *.* TO '用户'@'%' IDENTIFIED BY '密码' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON \*.\* TO '用户'@'%' IDENTIFIED BY '密码' WITH GRANT OPTION;
 
 FLUSH PRIVILEGES;
 
