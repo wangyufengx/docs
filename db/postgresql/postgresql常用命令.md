@@ -1,4 +1,4 @@
-#修改用户密码
+# 修改用户密码
 
 echo "postgres:密码" | chpasswd
 
