@@ -8,6 +8,7 @@ CREATE USER `用户名` WITH PASSWORD '密码';
 
 #修改用户
 psql -U postgres -h 127.0.0.1 -p 5432 -w -c "ALTER USER postgres WITH PASSWORD '密码'"
+
 #创建用户
 psql -U postgres -h 127.0.0.1 -p 5432 -w -c "CREATE USER `用户名` WITH PASSWORD '密码'" --password
 
