@@ -69,3 +69,7 @@ const Priority = 1
 | udp-log                 | 8      |
 | zipkin                  | 100000 |
 
+## 参考文档
+
+https://docs.konghq.com/gateway/latest/plugin-development/custom-logic/
+
