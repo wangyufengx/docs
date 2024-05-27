@@ -66,3 +66,10 @@ stream {
 $scheme:// 请求的协议
 ```
 
+## 默认转发
+
+```
+location = / {
+  rewrite ^(.*)$  http:/$host/hello/nginx$1 permanent;
+}
+```
