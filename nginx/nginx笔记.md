@@ -83,6 +83,15 @@ stream {
 $scheme:// 请求的协议
 ```
 
+## 80重定向到443
+```
+server {
+  listen   80;
+  server_name  domain;
+  return   301 https://$server_name$request_uri;
+}
+```
+
 ## 默认转发
 
 ```
