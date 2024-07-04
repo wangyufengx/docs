@@ -63,6 +63,12 @@ make install
 ./configure --with-stream
 ```
 
+### 编译时添加ssl模块
+
+```
+./configure  --with-http_ssl_module
+```
+
 ### 添加软连接
 
 ```bash
