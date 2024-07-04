@@ -27,6 +27,23 @@ server {
 }
 ```
 
+## 生成测试的ssl证书
+
+### 生成密钥
+```
+openssl genrsa -out yourdomain.key 2048
+```
+
+### 生成证书签名请求（CSR）
+```
+openssl req -new -key yourdomain.key -out yourdomain.csr
+```
+
+### 生成自签名证书（crt）
+```
+openssl x509 -req -days 365 -in yourdomain.csr -signkey yourdomain.key -out yourdomain.crt
+```
+
 ## 开启https
 
 ssl_certificate：证书公钥
@@ -40,7 +57,7 @@ server {
       server_name  localhost;
       absolute_redirect off;
 
-      ssl_certificate      /etc/nginx/9266483_zcode.hzsun.com.pem;
+      ssl_certificate      /etc/nginx/9266483_zcode.hzsun.com.crt;
       ssl_certificate_key  /etc/nginx/9266483_zcode.hzsun.com.key;
 
       ssl_session_cache    shared:SSL:1m;
