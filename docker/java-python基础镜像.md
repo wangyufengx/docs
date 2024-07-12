@@ -1,3 +1,6 @@
+# java-python基础镜像
+
+```Dockerfile
 FROM docker.io/library/alpine:3.19
 
 LABEL maintainer="wangyufengx"  
@@ -12,3 +15,4 @@ RUN	 set -eux; \
     && pip --version; \
     apk add openjdk8 \
     && java -version;
+```
