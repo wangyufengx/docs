@@ -7,6 +7,7 @@ RUN	 set -eux; \
     &&  apk upgrade \
     &&  apk add build-base zlib-dev bzip2-dev openssl-dev ncurses-dev libffi-dev readline-dev gdbm-dev sqlite-dev; \
     apk add python3 \
+    && apk add py3-pip \
     && pip install --upgrade pip \
     && python --version \
     && pip --version; \
