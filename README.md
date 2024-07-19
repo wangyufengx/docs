@@ -9,6 +9,8 @@
 
 [计算机科学与探索](http://fcst.ceaj.org/)
 
-## 镜像站
+## 镜像仓库
 
 [清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/)
+
+[MirrorZ](https://help.mirrors.cernet.edu.cn/)
