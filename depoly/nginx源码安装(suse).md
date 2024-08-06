@@ -92,6 +92,30 @@ Restart=on-failure
 WantedBy=multi-user.target
 ```
 
+### 重新加载 systemd 配置
+
+```
+sudo systemctl daemon-reload
+```
+
+### 启动 nginx 服务
+
+```
+sudo systemctl start nginx
+```
+
+### 检查 nginx 服务状态
+
+```
+systemctl status nginx
+```
+
+### 设置开机自启
+
+```
+systemctl enable nginx
+```
+
 
 ## 问题参考
 
