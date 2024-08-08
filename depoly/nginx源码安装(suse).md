@@ -81,13 +81,18 @@ ln -s /usr/local/nginx/sbin/nginx /usr/bin/nginx
 vim /usr/lib/systemd/system/nginx.service
 
 [Unit]
-Description=nginx
+Description=The NGINX HTTP and reverse proxy server
+After=network.target
+ 
 [Service]
-ExecStart=/usr/bin/nginx
-# 指定二进制程序目录及执行时需要加载的配置文件目录
-ExecReload=/bin/kill -HUP $MAINPID
-KillMode=process
-Restart=on-failure
+Type=forking
+PIDFile=/usr/local/nginx/logs/nginx.pid
+ExecStartPre=/usr/bin/nginx -t
+ExecStart=/usr/bin/nginx -c /usr/local/nginx/conf/nginx.conf
+ExecReload=/usr/bin/nginx -s reload
+ExecStop=/bin/kill -s QUIT $MAINPID
+PrivateTmp=true
+ 
 [Install]
 WantedBy=multi-user.target
 ```
