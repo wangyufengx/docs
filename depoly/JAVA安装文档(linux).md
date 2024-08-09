@@ -31,6 +31,7 @@ source /etc/profile
 
 ```bash
 ln -s /usr/local/java/jdk1.8.0_241/bin/java /usr/bin/java
+ln -s /usr/local/java/jdk1.8.0_241/bin/javac /usr/bin/javac
 ```
 
 ### 检查java版本
