@@ -60,3 +60,23 @@ nacos.core.auth.enable.userAgentAuthWhite=false
 
 sh startup.sh -m standalone
 ```
+
+## 设置开机自启
+
+```
+vim /usr/lib/systemd/system/nacos.service
+
+[Unit]  
+Description=nacos  
+After=network.target  
+
+[Service]  
+Type=forking  
+ExecStart=/opt/nacos/bin/startup.sh -m standalone  
+ExecReload=/opt/nacos/bin/shutdown.sh  
+ExecStop=/opt/nacos/bin/shutdown.sh  
+PrivateTmp=true  
+
+[Install]  
+WantedBy=multi-user.target
+```
