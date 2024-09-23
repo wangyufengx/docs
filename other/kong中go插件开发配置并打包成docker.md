@@ -164,6 +164,35 @@ docker run -d --name kong --restart=no \
     kong:2.8.0-personalise kong start -c /etc/kong/kong.conf.default
 ```
 
+### docker compose
+```docker-compose.yml
+services:
+  kong:
+    image: "ctrimages.hzlinks4.net/library/kong:3.4.2-personalise"
+    container_name: "kong-3.4.2"
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+      - "8002:8002"
+      - "8443:8443"
+      - "8444:8444"
+      - "8445:8445"
+    environment:
+      - TZ=Asia/Shanghai
+      - KONG_DATABASE=postgres
+      - KONG_PG_PORT=5432
+      - KONG_PG_HOST={IP}
+      - KONG_PG_DATABASE=kong
+      - KONG_PG_USER=postgres
+      - KONG_PG_PASSWORD=kong
+      - KONG_ADMIN_LISTEN=0.0.0.0:8001, 0.0.0.0:8444 ssl
+      - KONG_ADMIN_GUI_LISTEN=0.0.0.0:8002, 0.0.0.0:8445 ssl
+      - KONG_ADMIN_GUI_URL=http://{IP}:8002/manager
+      - KONG_ADMIN_GUI_PATH=/manager
+    restart: always
+    command: "kong start -c /etc/kong/kong.conf.default"
+```
+
 
 ### 参考资料
 
