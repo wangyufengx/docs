@@ -41,4 +41,5 @@ Content-Security-Policy: <policy-directive>; <policy-directive>
 ## 参考文档
 
 [Content-Security-Policy (CSP)](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Security-Policy)
+
 [Web 安全之内容安全策略（Content-Security-Policy,CSP）详解](https://www.cnblogs.com/mutudou/p/14373644.html)
