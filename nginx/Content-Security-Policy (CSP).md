@@ -26,6 +26,7 @@ Content-Security-Policy: <policy-directive>; <policy-directive>
 ## CSP 指令值
 
 |指令值|	说明|
+|:---:|:---:|
 |* |	允许加载任何内容|
 |'none'	|不允许加载任何内容|
 |'self'|	允许加载相同源的内容|
