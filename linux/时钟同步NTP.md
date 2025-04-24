@@ -62,7 +62,13 @@ firewall-cmd --reload
 - offset：主机通过NTP时钟同步与所同步时间源的时间偏移量，单位为毫秒（ms）。offset越接近于0,主机和ntp服务器的时间越接近
 - jitter:这是一个用来做统计的值.它统计了在特定个连续的连接数里offset的分布情况.简单地说这个数值的绝对值越小，主机的时间就越精确
 
+### 主动同步远程服务器时间
 
+#### `ntpdate -u IP`
+
+```bash
+ntpdate -u ntp.aliyun.com
+```
 
 
 
