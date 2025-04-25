@@ -6,20 +6,20 @@
 ### 启用AOF备份
 
 ```bash
-/usr/local/redis/bin/redis-cli -h 127.0.0.1 -p 6379  -a hzsun310012  --no-auth-warning  CONFIG SET appendonly yes
+/usr/local/redis/bin/redis-cli -h 127.0.0.1 -p 6379  -a password  --no-auth-warning  CONFIG SET appendonly yes
 ```
 
 
 ### 开始AOF备份
 
 ```bash
- /usr/local/redis/bin/redis-cli -h 127.0.0.1 -p 6379  -a hzsun310012  --no-auth-warning  BGREWRITEAOF
+ /usr/local/redis/bin/redis-cli -h 127.0.0.1 -p 6379  -a password  --no-auth-warning  BGREWRITEAOF
 ```
 
 ### 查看备份是否完成
 
 ```bash
-/usr/local/redis/bin/redis-cli -h 127.0.0.1 -p 6379  -a hzsun310012  --no-auth-warning  info persistence
+/usr/local/redis/bin/redis-cli -h 127.0.0.1 -p 6379  -a password  --no-auth-warning  info persistence
 ```
 
 #### 关键字段解析
@@ -56,5 +56,5 @@ redis-server /usr/local/redis/redis.conf &
 ### 查看所有键是否存在
 
 ```bash
-/usr/local/redis/bin/redis-cli -h 127.0.0.1 -p 6379  -a hzsun310012  --no-auth-warning  keys "*"
+/usr/local/redis/bin/redis-cli -h 127.0.0.1 -p 6379  -a password  --no-auth-warning  keys "*"
 ```
