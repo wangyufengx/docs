@@ -16,6 +16,8 @@ server-id=1001
 ```vim /etc/my.cnf
 #修改的配置,server-id从库与主库的不能一样
 server-id=2002
+relay-log=relay-log           # 启用中继日志
+read_only=1                   # 可选：限制从库只读
 ```
 
 重启数据库
@@ -51,6 +53,12 @@ MariaDB [(none)]> show variables like '%log_bin';
 2 rows in set (0.001 sec)
 
 ```
+### 创建同步数据用户
+```
+CREATE USER 'repl_user'@'%' IDENTIFIED BY 'password';
+GRANT REPLICATION SLAVE ON *.* TO 'repl_user'@'%';
+FLUSH PRIVILEGES;
+```
 
 ## 导出
 
@@ -75,11 +83,11 @@ mysql -h 172.16.4.199 -uroot -p42a2fd817cd < all-$(date +%F).sql
 
  CHANGE MASTER TO 
   MASTER_HOST='172.16.4.199', 
-  MASTER_USER='tongbu',
-  MASTER_PASSWORD='310012',
+  MASTER_USER='repl_user',
+  MASTER_PASSWORD='password',
   MASTER_PORT=6006,
-  MASTER_LOG_FILE='mysql-bin.000246', 
-  MASTER_LOG_POS=401;
+  MASTER_LOG_FILE='mysql-bin.000042', 
+  MASTER_LOG_POS=98680033;
 
 ## 开启同步
 
