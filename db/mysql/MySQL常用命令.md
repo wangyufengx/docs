@@ -49,11 +49,31 @@ FLUSH PRIVILEGES;
 
 mysqldump -u root -p  --all-databases > 导出文件名称.sql
 
---all-databases 所有数据库，包含系统库
---database 指定数据库
---ignore-table=db_name.tbl_name 不要转储给定的表，该表必须使用数据库名和表名指定。要忽略多个表，请多次使用此选项。此选项也可用于忽略视图。
---tables 覆盖--databases or-B选项。指定表
---skip-triggers 跳过触发器
+> --all-databases 所有数据库，包含系统库
+>
+> --databases 指定多个数据库
+> 
+> --database 指定数据库
+> 
+> --ignore-table=db_name.tbl_name 不要转储给定的表，该表必须使用数据库名和表名指定。要忽略多个表，请多次使用此选项。此选项也可用于忽略视图。
+> 
+> --tables 覆盖--databases or-B选项。指定表
+> 
+> --skip-triggers 跳过触发器
+>
+> --flush-logs 备份前刷新二进制日志（Binlog），生成新日志文件，便于后续增量备份或恢复操作
+>
+> --single-transaction：通过事务保证备份期间数据一致性，适合 InnoDB 引擎的热备份
+>
+> --master-data=2：以注释形式记录备份时的 Binlog 文件名及位置点，用于主从复制或基于时间点的恢复
+>
+> --quick：逐行检索数据而非缓存全表，减少内存占用
+>
+> --triggers：备份触发器
+>
+> --routines：备份存储过程和函数
+>
+> --events：备份事件调度器任务
 
 
 ### 导入脚本
