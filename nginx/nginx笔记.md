@@ -99,3 +99,22 @@ location = / {
   rewrite ^(.*)$  http:/$host/hello/nginx$1 permanent;
 }
 ```
+
+## ERR_RESPONSE_HEADERS_MULTIPLE_CONTENT_DISPOSITION错误
+
+该错误通常发生在浏览器下载文件时，因响应头设置不当导致解析冲突。以下是具体分析和解决方案：
+
+### 错误原因分析
+‌
+- 特殊字符引发解析歧义‌：当文件名包含逗号、分号等特殊符号时，浏览器可能误判为多个响应头声明24。例如filename=test(x,y).docx会被拆分为filename=test(x和y).docx两部分2。
+
+‌- 重复设置响应头‌：服务端代码可能多次设置Content-Disposition头，导致浏览器接收多个冲突指令6。
+
+-‌ 引号缺失问题‌：未用引号包裹含特殊符号的文件名，浏览器会触发安全机制拦截请求
+
+### 强制覆盖响应头
+
+```
+ proxy_hide_header Content-Disposition;
+ add_header Content-Disposition 'attachment; filename="$arg_filename"';
+```
