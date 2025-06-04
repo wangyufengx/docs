@@ -56,11 +56,12 @@ Wants=network-online.target
 
 [Service]
 ExecStart=/usr/bin/redis-server /usr/local/redis/redis.conf --daemonize no --supervised systemd
-Type=notify
-User=redis
-Group=redis
-RuntimeDirectory=redis
-RuntimeDirectoryMode=0755
+# Type=forking
+User=root
+Group=root
+ExecStop=/usr/local/redis/bin/redis-cli shutdown
+Restart=on-failure
+RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
