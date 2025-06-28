@@ -53,6 +53,7 @@
 | `WantedBy` | 指定关联的 `target`（开机自启依赖） | `WantedBy=multi-user.target` |
 | `Alias`    | 服务别名                           | `Alias=web-server.service`   |
 
+### 示例
 
 ```bash
 cat > /usr/lib/systemd/system/nginx.service << EOF
