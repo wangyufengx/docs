@@ -50,8 +50,8 @@
 
 | ‌**参数**‌   | ‌**作用**‌                              | ‌**示例值**‌                   |
 | ---------- | ------------------------------------- | ---------------------------- |
-| `WantedBy` | 指定关联的 `target`（开机自启依赖）26 | `WantedBy=multi-user.target` |
-| `Alias`    | 服务别名610                           | `Alias=web-server.service`   |
+| `WantedBy` | 指定关联的 `target`（开机自启依赖） | `WantedBy=multi-user.target` |
+| `Alias`    | 服务别名                           | `Alias=web-server.service`   |
 
 
 ```bash
