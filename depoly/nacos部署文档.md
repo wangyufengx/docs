@@ -124,9 +124,12 @@ After=network.target
 [Service]  
 Type=forking  
 ExecStart=/opt/nacos/bin/startup.sh -m standalone  
-ExecReload=/opt/nacos/bin/shutdown.sh  
-ExecStop=/opt/nacos/bin/shutdown.sh  
-PrivateTmp=true  
+ExecStop=/opt/nacos/bin/shutdown.sh
+Restart=on-failure
+RestartSec=60
+StartLimitInterval=65
+StartLimitBurst=5
+PrivateTmp=true
 
 [Install]  
 WantedBy=multi-user.target
