@@ -25,13 +25,14 @@ cd redis-x.x.x
 make
 
 # 使用PREFIX指定安装目录
-make install PREFIX=/usr/local/redis
+make install USE_SYSTEMD=yes PREFIX=/usr/local/redis
 
 # 拷贝配置文件redis.conf到安装目录
 ```
 ### 配置redis
 ```redis.conf
 requirepass
+supervised systemd
 
 bind
 ```
@@ -49,14 +50,15 @@ redis-server /usr/local/redis/redis.conf
 ### 将服务注册为linux系统服务
 ```
 [Unit]
-Description=Redis persistent key-value database
+Description=Redis
 After=network.target
 After=network-online.target
 Wants=network-online.target
 
 [Service]
-ExecStart=/usr/bin/redis-server /usr/local/redis/redis.conf --daemonize no --supervised systemd
-# Type=forking
+ExecStart=/usr/bin/redis-server /usr/local/redis/conf/redis.conf
+Type=notify
+NotifyAccess=all
 User=root
 Group=root
 ExecStop=/usr/local/redis/bin/redis-cli shutdown
