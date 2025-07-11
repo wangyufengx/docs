@@ -1,0 +1,18 @@
+[Unit]
+Description=Redis
+After=network.target
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/redis-server /usr/local/redis/conf/redis.conf
+Type=notify
+NotifyAccess=all
+User=root
+Group=root
+ExecStop=/usr/local/redis/bin/redis-cli shutdown
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
