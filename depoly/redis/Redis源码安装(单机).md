@@ -29,9 +29,15 @@ make install USE_SYSTEMD=yes PREFIX=/usr/local/redis
 
 # 拷贝配置文件redis.conf到安装目录
 ```
+#### 编译时添加 `USE_SYSTEMD=yes`
+
+- 作用：为 Redis 提供原生 ‌systemd 集成支持‌，实现服务状态主动通知与管理协同
+
 ### 配置redis
 ```redis.conf
 requirepass
+
+# 启用 systemd 监管
 supervised systemd
 
 bind
